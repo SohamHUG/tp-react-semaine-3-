@@ -1,0 +1,135 @@
+
+/* ********************
+GENERALITY
+******************** */
+
+:root {
+    --primary-color: #EAB024;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    width: 110px;
+    border: none;
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* ********************
+NAV
+******************** */
+
+nav {
+    background-color: var(--primary-color);
+
+}
+
+nav, nav ul {
+    display: flex;
+}
+
+nav {
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav div {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+/* ********************
+MAIN
+******************** */
+
+section .product-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 50%;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 2em 0;
+}
+
+.content-product {
+    width: 60%;
+}
+
+.image-container {
+    width: 150px;
+    min-width: 150px;
+    margin-right: 20px;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.category {
+    background-color: #adadad;
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.7rem;
+    color: rgb(94, 94, 94);
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.product form {
+    display: flex;
+    flex-direction: column;
+}
+
+.product form input {
+    margin-left: 10px;
+    width: 30px;
+}
+
+/* ************ user profile ************ */
+
+.user {
+    padding: 2em;
+}
+
+.user form div {
+    margin: 1em 0;
+}
+
+.user input {
+    margin-left: 10px;
+    padding: 5px;
+}
