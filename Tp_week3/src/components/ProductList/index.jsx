@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../store/slice/productSlice';
 import { addItemToCart } from '../../store/slice/cartSlice';
 import toast from "react-hot-toast";
+import { selectProducts, selectProductsStatus, selectProductsError, selectDarkMode } from "../../store/selectors/index";
 
 const ProductsList = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state) => state.products.items);
-    const status = useSelector((state) => state.products.status);
-    const error = useSelector((state) => state.products.error);
-    const darkMode = useSelector((state) => state.theme.darkMode);
+    const products = useSelector(selectProducts);
+    const status = useSelector(selectProductsStatus);
+    const error = useSelector(selectProductsError);
+    const darkMode = useSelector(selectDarkMode);
     const [quantity, setQuantity] = useState({});
 
     useEffect(() => {

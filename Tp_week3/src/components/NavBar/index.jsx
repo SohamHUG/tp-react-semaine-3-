@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleDarkMode } from '../../store/slice/themeSlice';
+import { selectUserFirstName, selectUserLastName, selectCartItemCount, selectDarkMode } from '../../store/selectors/index';
 
 const NavBar = () => {
 
-  const user = useSelector((state) => state.user);
-  const cartItems = (useSelector((state) => state.cart.items)).length;
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  const firstname = useSelector(selectUserFirstName);
+  const lastname = useSelector(selectUserLastName);
+  const cartItems = useSelector(selectCartItemCount);
+  const darkMode = useSelector(selectDarkMode);
   const dispatch = useDispatch();
 
   const handleToggleDarkMode = () => {
@@ -21,7 +23,7 @@ const NavBar = () => {
       <div>
         <ul>
           <li>
-            <NavLink className={`profile ${darkMode ? 'dark' : ''}`} to={'/profile'}>🧑 {user.firstname} {user.lastname} </NavLink>
+            <NavLink className={`profile ${darkMode ? 'dark' : ''}`} to={'/profile'}>🧑 {firstname} {lastname} </NavLink>
 
           </li>
           <li>

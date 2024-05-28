@@ -9,7 +9,7 @@ GENERALITY
 }
 
 body {
-    margin: 90px auto;
+    margin: 0;
     font-family: sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -50,12 +50,11 @@ NAV
 nav {
     background-color: var(--primary-color);
     height: 80px;
-    position: fixed;
     width: 100%;
-    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -63,12 +62,37 @@ nav {
     font-weight: bold;
     font-size: 1.8rem;
 }
+
 nav ul {
     display: flex;
 }
 
 nav ul li {
     margin: 0 20px;
+}
+
+@media screen and (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-left: 0;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        margin-right: 20px;
+        font-size: 0.8rem;
+    }
 }
 
 /* ********************
@@ -140,6 +164,17 @@ section {
     width: 30px;
 }
 
+@media screen and (max-width: 900px) {
+    
+    .product {
+        width: 100%;
+    }
+
+    .content-product {
+        width: 100%;
+    }
+}
+
 /* ************ user profile ************ */
 
 .user {
@@ -156,13 +191,20 @@ section {
 }
 
 /**************Panier************/
+
 .clear-button {
     margin: 0 2em;
     background-color: rgb(155, 14, 14);
+    color: #ffffff;
+    padding: 5px 13px;
+    width: 140px;
 }
 
 .valid-button {
     background-color: rgb(27, 116, 27);
+    color: #ffffff;
+    padding: 5px 13px;
+    width: 140px;
 }
 
 /* ********************

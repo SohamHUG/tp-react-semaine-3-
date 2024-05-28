@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, removeItemFromCart, updateItemQuantity } from '../../store/slice/cartSlice';
 import toast from "react-hot-toast";
-
+import { selectUserFirstName, selectCartItems, selectDarkMode } from '../../store/selectors';
 
 const BasketPage = () => {
-    const user = useSelector((state) => state.user);
-    const cartItems = useSelector((state) => state.cart.items);
-    const darkMode = useSelector((state) => state.theme.darkMode);
+    const firstname = useSelector(selectUserFirstName);
+    const cartItems = useSelector(selectCartItems);
+    const darkMode = useSelector(selectDarkMode);
     const dispatch = useDispatch();
 
     const handleClearCart = () => {
@@ -71,7 +71,7 @@ const BasketPage = () => {
 
     return (
         <section>
-            <h1>Hi {user.firstname}!</h1>
+            <h1>Hi {firstname}!</h1>
             <h3>There are {totalItems} items in your basket</h3>
             {totalItems > 0 &&
                 <div>

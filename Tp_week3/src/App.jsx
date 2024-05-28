@@ -1,11 +1,9 @@
-import { useEffect } from 'react'
 import { Route, Routes } from "react-router-dom";
 import MainTemplate from "./components/Template/MainTemplate";
 import HomePage from "./pages/Home/index.page";
 import UserPage from './pages/User/index.page';
 import BasketPage from './pages/Basket/index.page';
 import { Toaster } from 'react-hot-toast';
-import { useSelector } from 'react-redux';
 import "./index.css"
 
 function App() {
