@@ -1,24 +1,42 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes } from "react-router-dom";
-import  MainTemplate  from "./components/Template/MainTemplate";
+import MainTemplate from "./components/Template/MainTemplate";
 import HomePage from "./pages/Home/index.page";
 import UserPage from './pages/User/index.page';
+import BasketPage from './pages/Basket/index.page';
+import { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 import "./index.css"
 
 function App() {
+
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   return (
     <>
       <Routes>
         <Route element={<MainTemplate />}>
           <Route path={'/'} element={<HomePage />} />
-          <Route path={'/cart'} element={<div>Panier</div>} />
+          <Route path={'/basket'} element={<BasketPage />} />
           <Route path={'/profile'} element={<UserPage />} />
 
-          <Route path={'*'} element={<div>Oups, you seems lost <br/>404</div>} />
+          <Route path={'*'} element={<div>Oups, you seems lost <br />404</div>} />
         </Route>
 
+
       </Routes>
+      <Toaster
+        position="bottom-center"
+        reverseOrder={true}
+      />
     </>
   )
 }

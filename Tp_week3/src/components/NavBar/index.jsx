@@ -1,26 +1,41 @@
 import { NavLink } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleDarkMode } from '../../store/slice/themeSlice';
 
 const NavBar = () => {
 
   const user = useSelector((state) => state.user);
+  const cartItems = (useSelector((state) => state.cart.items)).length;
+  const darkMode = useSelector((state) => state.theme.darkMode);
+  const dispatch = useDispatch();
+
+  const handleToggleDarkMode = () => {
+    dispatch(toggleDarkMode());
+  };
 
   return (
-    <nav>
-      <div>
-        <NavLink className={'home'} to={'/'}>EZ Shopping</NavLink>
+    <nav className={darkMode ? 'dark' : ''}>
+      <div className="logo">
+        <NavLink className={`home ${darkMode ? 'dark' : ''}`} to={'/'}>EZ Shopping</NavLink>
       </div>
       <div>
         <ul>
           <li>
-            <NavLink className={'profile'} to={'/profile'}>{user.firstname} {user.lastname} </NavLink>
+            <NavLink className={`profile ${darkMode ? 'dark' : ''}`} to={'/profile'}>🧑 {user.firstname} {user.lastname} </NavLink>
 
           </li>
           <li>
-            <NavLink className={'basket'} to={'/cart'}>Panier</NavLink>
+            <NavLink className={`basket ${darkMode ? 'dark' : ''}`} to={'/basket'}>
+              {cartItems > 0 ?
+                <div>🛒 <strong>{cartItems}</strong> items</div>
+                :<div>🛒 Basket</div>
+              }
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'/'}>Dark Mode</NavLink>
+          <button onClick={handleToggleDarkMode} className={`dark-mode-toggle ${darkMode ? 'dark' : ''}`}>
+              {darkMode ? '☀️ Light Mode' : '🌑 Dark Mode'}
+            </button>
           </li>
         </ul>
       </div>

@@ -1,15 +1,18 @@
-
 /* ********************
 GENERALITY
 ******************** */
 
 :root {
     --primary-color: #EAB024;
+    --background-color: #ffffff;
+    --text-color: #000000;
 }
 
 body {
-    margin: 0;
+    margin: 90px auto;
     font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 ul {
@@ -21,7 +24,7 @@ a {
     color: black;
 }
 
-button {
+.classic-btn {
     width: 110px;
     border: none;
     background-color: var(--primary-color);
@@ -30,28 +33,38 @@ button {
     margin-top: 10px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+h1,
+h3
+{
+    margin: 1em ;
+}
+
 /* ********************
 NAV
 ******************** */
 
 nav {
     background-color: var(--primary-color);
-
-}
-
-nav, nav ul {
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    top: 0;
     display: flex;
-}
-
-nav {
     align-items: center;
     justify-content: space-between;
 }
 
-nav div {
+.logo {
     margin-left: 20px;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+}
+nav ul {
+    display: flex;
 }
 
 nav ul li {
@@ -66,10 +79,14 @@ section .product-container {
     display: flex;
     flex-wrap: wrap;
 }
+section {
+    margin: 0 auto;
+}
 
 .product {
     width: 50%;
     display: flex;
+    justify-content: center;
     padding: 10px;
     box-sizing: border-box;
     margin: 2em 0;
@@ -109,12 +126,16 @@ section .product-container {
     font-weight: bold;
 }
 
-.product form {
+.product form,
+.content-product
+{
     display: flex;
     flex-direction: column;
 }
 
-.product form input {
+.product form input,
+.content-product input
+{
     margin-left: 10px;
     width: 30px;
 }
@@ -133,3 +154,37 @@ section .product-container {
     margin-left: 10px;
     padding: 5px;
 }
+
+/**************Panier************/
+.clear-button {
+    margin: 0 2em;
+}
+
+/* ********************
+DARK MODE
+******************** */
+
+.dark-mode-toggle{
+    background-color: var(--primary-color);
+    border: none;
+}
+
+body.dark,
+img.dark
+{
+    --background-color: #333333;
+    --text-color: #ffffff;
+}
+
+nav.dark,
+button.dark
+{
+    background-color: #444444;
+}
+
+a.dark,
+button.dark
+{
+    color: white;
+}
+

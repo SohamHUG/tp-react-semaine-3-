@@ -56,7 +56,7 @@ const UserPage = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Save</button>
+        <button className='classic-btn' type="submit">Save</button>
       </form>
     </div>
   );
