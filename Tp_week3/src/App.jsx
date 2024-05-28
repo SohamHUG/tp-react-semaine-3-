@@ -10,16 +10,6 @@ import "./index.css"
 
 function App() {
 
-  const darkMode = useSelector((state) => state.theme.darkMode);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, [darkMode]);
-
   return (
     <>
       <Routes>
