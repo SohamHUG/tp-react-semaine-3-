@@ -31,17 +31,14 @@ const BasketPage = () => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
         darkMode ?
-            toast('Your order has been validated !', {
-                icon: '✅🗑️',
+            toast.success('Your order has been validated !', {
+                
                 style: {
                     background: 'black',
                     color: '#fff',
                 },
             })
-            :
-            toast('Your order has been validated !', {
-                icon: '✅🗑️',
-            })
+        :toast.success('Your order has been validated !')
 
         dispatch(clearCart());
 
