@@ -158,6 +158,11 @@ section {
 /**************Panier************/
 .clear-button {
     margin: 0 2em;
+    background-color: rgb(155, 14, 14);
+}
+
+.valid-button {
+    background-color: rgb(27, 116, 27);
 }
 
 /* ********************

@@ -27,19 +27,39 @@ const BasketPage = () => {
 
     };
 
+    const handleValid = () => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        darkMode ?
+            toast('Your order has been validated !', {
+                icon: '✅🗑️',
+                style: {
+                    background: 'black',
+                    color: '#fff',
+                },
+            })
+            :
+            toast('Your order has been validated !', {
+                icon: '✅🗑️',
+            })
+
+        dispatch(clearCart());
+
+    }
+
     const handleRemoveItem = (id) => {
         dispatch(removeItemFromCart(id));
-        darkMode ? 
-        toast('Product removed successfully !', {
-            icon: '✅🗑️',
-            style: {
-                background: 'black',
-                color: '#fff',
-            },
-        })
-        : toast('Product removed successfully !', {
-            icon: '✅🗑️',
-        })
+        darkMode ?
+            toast('Product removed successfully !', {
+                icon: '✅🗑️',
+                style: {
+                    background: 'black',
+                    color: '#fff',
+                },
+            })
+            : toast('Product removed successfully !', {
+                icon: '✅🗑️',
+            })
 
     };
 
@@ -53,7 +73,12 @@ const BasketPage = () => {
         <section>
             <h1>Hi {user.firstname}!</h1>
             <h3>There are {totalItems} items in your basket</h3>
-            {totalItems > 0 && <button className=' classic-btn clear-button' onClick={handleClearCart}>Clear Basket</button>}
+            {totalItems > 0 &&
+                <div>
+                    <button className=' classic-btn clear-button' onClick={handleClearCart}>Clear Basket 🗑️</button>
+                    <button className=' classic-btn valid-button' onClick={handleValid}>Valid Basket ✅</button>
+                </div>
+            }
             <div className="product-container">
                 {cartItems.map((item) => (
                     <div className="product" key={item.id}>
@@ -80,6 +105,7 @@ const BasketPage = () => {
                         </div>
                     </div>
                 ))}
+
             </div>
         </section>
     );

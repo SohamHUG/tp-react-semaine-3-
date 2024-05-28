@@ -1,5 +1,5 @@
 import NavBar from "../NavBar/index";
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 
@@ -16,8 +16,8 @@ const MainTemplate = () => {
 
   return (
     <main>
-      <NavBar/>
-      <Outlet/>
+      <NavBar />
+      <Outlet />
     </main>
   )
 }
