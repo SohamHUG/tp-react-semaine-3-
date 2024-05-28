@@ -2,6 +2,7 @@
 export const selectUser = (state) => state.user;
 export const selectUserFirstName = (state) => state.user.firstname;
 export const selectUserLastName = (state) => state.user.lastname;
+export const selectUserEmail = (state) => state.user.email;
 
 //panier
 export const selectCartItems = (state) => state.cart.items;

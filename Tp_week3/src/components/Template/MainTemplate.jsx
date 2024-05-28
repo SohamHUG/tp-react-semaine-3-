@@ -2,9 +2,10 @@ import NavBar from "../NavBar/index";
 import { Outlet } from "react-router-dom";
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
+import { selectDarkMode } from "../../store/selectors/index";
 
 const MainTemplate = () => {
-  const darkMode = useSelector((state) => state.theme.darkMode);
+  const darkMode = useSelector(selectDarkMode);
 
   useEffect(() => {
     if (darkMode) {
