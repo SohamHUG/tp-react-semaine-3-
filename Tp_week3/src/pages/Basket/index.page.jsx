@@ -17,7 +17,7 @@ const BasketPage = () => {
             toast('Basket cleared !', {
                 icon: '✅🗑️',
                 style: {
-                    background: 'black',
+                    background: '#444444',
                     color: '#fff',
                 },
             })
@@ -34,7 +34,7 @@ const BasketPage = () => {
             toast.success('Your order has been validated !', {
                 
                 style: {
-                    background: 'black',
+                    background: '#444444',
                     color: '#fff',
                 },
             })
@@ -50,7 +50,7 @@ const BasketPage = () => {
             toast('Product removed successfully !', {
                 icon: '✅🗑️',
                 style: {
-                    background: 'black',
+                    background: '#444444',
                     color: '#fff',
                 },
             })

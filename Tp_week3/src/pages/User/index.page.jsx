@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../../store/slice/userSlice';
+import toast from "react-hot-toast";
+import { selectDarkMode, selectUser } from '../../store/selectors';
+
 
 const UserPage = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(selectUser);
+  const darkMode = useSelector(selectDarkMode);
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     firstname: user.firstname,
@@ -21,12 +25,60 @@ const UserPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUser(formData));
-  };
+    if (formData.firstname.trim() === '' || formData.lastname.trim() === '' || formData.email.trim() === '') {
+
+      if (formData.firstname.trim() === '') {
+        darkMode ?
+          toast.error('Please enter your firstname', {
+            style: {
+              background: '#444444',
+              color: '#fff',
+            },
+          })
+          : toast.error('Please enter your firstname')
+      }
+
+      if (formData.lastname.trim() === '') {
+        darkMode ?
+          toast.error('Please enter your lastname', {
+            style: {
+              background: '#444444',
+              color: '#fff',
+            },
+          })
+          : toast.error('Please enter your lastname')
+      }
+
+      if (formData.email.trim() === '') {
+        darkMode ?
+          toast.error('Please enter your email', {
+            style: {
+              background: '#444444',
+              color: '#fff',
+            },
+          })
+          : toast.error('Please enter your email')
+      }
+    } else {
+      dispatch(updateUser(formData));
+
+      darkMode ?
+        toast.success('Profil saved !', {
+
+          style: {
+            background: 'black',
+            color: '#fff',
+          },
+        })
+        : toast.success('Profil saved !')
+    };
+  }
+
+
 
   return (
     <div className={'user'}>
-      <h1>Hi {formData.firstname} !</h1>
+      <h1>Hi {user.firstname} !</h1>
       <h2>Customize your profile here :</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -34,7 +86,7 @@ const UserPage = () => {
           <input
             type="text"
             name="firstname"
-            value={formData.firstname}
+            value={formData.firstname.charAt(0).toUpperCase() + formData.firstname.slice(1)}
             onChange={handleChange}
           />
         </div>
@@ -43,7 +95,7 @@ const UserPage = () => {
           <input
             type="text"
             name="lastname"
-            value={formData.lastname}
+            value={formData.lastname.charAt(0).toUpperCase() + formData.lastname.slice(1)}
             onChange={handleChange}
           />
         </div>

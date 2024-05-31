@@ -9,8 +9,13 @@ GENERALITY
 }
 
 body {
-    margin: 0;
-    font-family: sans-serif;
+    margin: 5.5em 0;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -38,9 +43,11 @@ button:hover {
 }
 
 h1,
-h3
-{
-    margin: 1em ;
+h3 {
+    margin: 1em;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* ********************
@@ -55,6 +62,12 @@ nav {
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .logo {
@@ -103,6 +116,7 @@ section .product-container {
     display: flex;
     flex-wrap: wrap;
 }
+
 section {
     margin: 0 auto;
 }
@@ -151,21 +165,19 @@ section {
 }
 
 .product form,
-.content-product
-{
+.content-product {
     display: flex;
     flex-direction: column;
 }
 
 .product form input,
-.content-product input
-{
+.content-product input {
     margin-left: 10px;
     width: 30px;
 }
 
 @media screen and (max-width: 900px) {
-    
+
     .product {
         width: 100%;
     }
@@ -211,27 +223,27 @@ section {
 DARK MODE
 ******************** */
 
-.dark-mode-toggle{
+.dark-mode-toggle {
     background-color: var(--primary-color);
     border: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1em;
 }
 
 body.dark,
-img.dark
-{
+img.dark {
     --background-color: #333333;
     --text-color: #ffffff;
 }
 
 nav.dark,
-button.dark
-{
+button.dark {
     background-color: #444444;
 }
 
 a.dark,
-button.dark
-{
+button.dark {
     color: white;
 }
-

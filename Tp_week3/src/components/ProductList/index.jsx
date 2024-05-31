@@ -34,7 +34,7 @@ const ProductsList = () => {
         darkMode ? 
         toast.success("Product added to your basket !", 
         {style: {
-            background: 'black',
+            background: '#444444',
             color: '#fff',
         },})
         : toast.success("Product added to your basket !")
@@ -44,7 +44,7 @@ const ProductsList = () => {
     let content;
 
     if (status === 'loading') {
-        content = <p>Loading...</p>;
+        content = <h2 style={{position: 'fixed', bottom: '50%', right: '50%'}}>Loading...</h2>;
     } else if (status === 'succeeded') {
         content = (
             <div className="product-container">
